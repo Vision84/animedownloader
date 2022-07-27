@@ -16,13 +16,13 @@ for n in network_requests:
     if "master.m3u8" in n["name"]: 
         url = n["name"]
 
-r = requests.get(url) # get the master.m3u8 file
-m3u8_master = m3u8.loads(r.text) # convert to a readable format
-playlist_url = m3u8_master.data["playlists"][0]['uri'] # get the URL of the playlist containing all video segments
-r = requests.get(playlist_url) # get the playlist file
-playlist = m3u8.loads(r.text) # load into readable format
+r = requests.get(url)
+m3u8_master = m3u8.loads(r.text)
+playlist_url = m3u8_master.data["playlists"][0]['uri']
+r = requests.get(playlist_url)
+playlist = m3u8.loads(r.text)
 
-r = requests.get(playlist.data['segments'][0]['uri']) # get the URL of the segments
+r = requests.get(playlist.data['segments'][0]['uri'])
 ```
 
 We then stitch together all these files using basic Python and FFMPEG.
