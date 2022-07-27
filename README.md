@@ -1,3 +1,3 @@
 # Anime Downloader
 
-BETA Anime Downloader from popular streaming site animetake.tv
+Anime Downloader is a CLI for downloading HD anime onto your machine. This is for educational purposes only.
